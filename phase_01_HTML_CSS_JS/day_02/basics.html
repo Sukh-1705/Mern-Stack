@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3 {
+            color: green;
+        }
+        button {
+            padding: 20px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is the Index Page</h1>
+    <h3 id="Welcome">Welcome to Chitkara</h3>
+    
+    <button id="Submit">Welcome</button>
+
+    <script>
+        var greet = document.getElementById("Welcome")
+        var btn = document.getElementById("Submit")
+        
+        
+        var flag = false; 
+        
+        btn.addEventListener("click", handleClick)
+        
+        function handleClick() {
+            
+            flag = !flag
+            
+            
+            if (flag) {
+                greet.innerHTML = "Thanks for visiting"
+                greet.style.color = "red"
+                btn.innerText = "welcome"
+            } else {
+                greet.innerHTML = "Welcome to Chitkara"
+                greet.style.color = "green"
+                btn.innerText = "Exit"
+            }
+        }
+    </script>
+</body>
+</html>
