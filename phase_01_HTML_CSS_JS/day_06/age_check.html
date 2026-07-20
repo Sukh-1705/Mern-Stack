@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Age Checker</title>
+</head>
+<body>
+
+  <input type="number" id="age" placeholder="Enter your age">
+  <button onclick="checkAge()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkAge() {
+      let age = document.getElementById("age").value;
+      let result = document.getElementById("result");
+
+      if (age >= 18) {
+        result.style.color = "green";
+        result.textContent = "You are 18 or above you are allowed to vote";
+      } else {
+        result.style.color = "red";
+        result.textContent = "You are under 18 you are not eligible";
+      }
+    }
+  </script>
+
+</body>
+</html>
