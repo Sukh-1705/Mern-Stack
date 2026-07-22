@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Marks Grade Checker</title>
+
 </head>
 <body>
-    
+    <div class="box">
+        <h2>Marks Grade Checker</h2>
+        <input type="number" id="marks" placeholder="Enter marks">
+        <button onclick="checkGrade()">Check Grade</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkGrade() {
+            let marks = Number(document.getElementById('marks').value);
+            let result = document.getElementById('result');
+
+            if (marks >= 90) {
+                result.textContent = 'Grade: A+';
+                result.style.color = 'green';
+            } else if (marks >= 75) {
+                result.textContent = 'Grade: A';
+                result.style.color = 'blue';
+            } else if (marks >= 60) {
+                result.textContent = 'Grade: B';
+                result.style.color = 'orange';
+            } else if (marks >= 40) {
+                result.textContent = 'Grade: C';
+                result.style.color = 'purple';
+            } else {
+                result.textContent = 'Grade: Fail';
+                result.style.color = 'red';
+            }
+        }
+        
+    </script>
 </body>
 </html>
