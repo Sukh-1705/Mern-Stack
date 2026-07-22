@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Password Length Checker</h1>
+
+        <input type="String" id="str" placeholder="Enter a password">
+
+        <button onclick="checkLength()">Check Password Strength</button>
+
+        <p id="result"></p>
+    </div>
+</body>
+</html>
+<script>
+    function checkLength(){
+        let str=String(document.getElementById("str").value)
+        let result=document.getElementById("result")
+
+        if(str.length<8){
+            result.innerText="Weak Password"
+        }
+        else if(str.length>=8 && str.length<=12){
+            result.innerText="Good Password"
+        }
+        else{
+            result.innerText="Strong Password"
+        }
+    }
+
+    
+</script>
