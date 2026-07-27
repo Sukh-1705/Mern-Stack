@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOHOHO</title>
+</head>
+<body>
+  
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkLogin()">Login</button>
+        <div id="message"></div>
+
+    <script>
+        function checkLogin() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let message = document.getElementById('message');
+
+            if (username === 'Sukdev' && password === 'YOHOHO') {
+                message.textContent = 'Login successful';
+                message.style.color = 'green';
+            } else {
+                message.textContent = 'Invalid credentials';
+                message.style.color = 'red';
+            }
+        }
+        
+    </script>
+</body>
+</html>

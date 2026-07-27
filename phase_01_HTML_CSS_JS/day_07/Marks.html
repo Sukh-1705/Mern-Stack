@@ -19,23 +19,30 @@
             let marks = Number(document.getElementById('marks').value);
             let result = document.getElementById('result');
 
-            if (marks >= 90) {
-                result.textContent = 'Grade: A+';
-                result.style.color = 'green';
+            if (marks == 100) {
+                result.textContent = 'Sirra lata 🤯🧠';
+                result.style.color = 'black';
+            } else if (marks >= 90) {
+                result.textContent = 'U could do better';
+                result.style.color = 'green';    
             } else if (marks >= 75) {
-                result.textContent = 'Grade: A';
+                result.textContent = 'Chal theek a';
                 result.style.color = 'blue';
             } else if (marks >= 60) {
-                result.textContent = 'Grade: B';
+                result.textContent = 'Dumb little shi';
                 result.style.color = 'orange';
             } else if (marks >= 40) {
-                result.textContent = 'Grade: C';
+                result.textContent = 'Die';
                 result.style.color = 'purple';
             } else {
-                result.textContent = 'Grade: Fail';
+                result.textContent = 'Regret being born';
                 result.style.color = 'red';
             }
+            
         }
+        
+
+
         
     </script>
 </body>

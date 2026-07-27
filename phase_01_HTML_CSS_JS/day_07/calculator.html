@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
+</head>
+<body>
+
+        <h2>Simple Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+
+        <div class="buttons">
+            <button onclick="calculate('+')">+</button>
+            <button onclick="calculate('-')">-</button>
+            <button onclick="calculate('*')">×</button>
+            <button onclick="calculate('/')">÷</button>
+        </div>
+
+        <button onclick="clearInputs()" style="margin-top: 10px;">Clear</button>
+        <div id="result"></div>
+        
+
+    <script>
+        function calculate(operator) {
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+            let result = document.getElementById('result');
+
+            if (operator === '+') {
+                result.textContent = 'Result: ' + (num1 + num2);
+            } else if (operator === '-') {
+                result.textContent = 'Result: ' + (num1 - num2);
+            } else if (operator === '*') {
+                result.textContent = 'Result: ' + (num1 * num2);
+            } else if (operator === '/') {
+                if (num2 === 0) {
+                    result.textContent = 'Cannot divide by zero';
+                } else {
+                    result.textContent = 'Result: ' + (num1 / num2);
+                }
+            }
+        }
+        operation = prompt("Enter the operation (+, -, *, /):");
+
+        function clearInputs() {
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.getElementById('result').textContent = '';
+        }
+        
+    </script>
+</body>
+</html>
