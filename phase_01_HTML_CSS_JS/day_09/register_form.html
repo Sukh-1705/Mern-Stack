@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Card</title>
+
+  <!-- Bootstrap -->
+  
+
+  <style>
+  
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+
+    <!-- Form -->
+    <div class="col-md-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="text-center mb-4">Student Registration</h3>
+
+          <form id="studentForm" onsubmit="handleSubmit(event)">
+            <input
+              type="text"
+              id="name"
+              class="form-control mb-3"
+              placeholder="Enter Name"
+              required
+            >
+
+            <input
+              type="number"
+              id="age"
+              class="form-control mb-3"
+              placeholder="Enter Age"
+              required
+            >
+
+            <input
+              type="text"
+              id="course"
+              class="form-control mb-3"
+              placeholder="Enter Course"
+              required
+            >
+
+            <button class="btn btn-primary w-100">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <div class="col-md-5 mt-4 mt-md-0">
+      <div id="output"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let form = document.getElementById("studentForm");
+let output = document.getElementById("output");
+
+let renderCard = (student) => {
+    output.innerHTML = `
+        <div class="student-card">
+            <h3 class="text-primary mb-3">${student.name}</h3>
+            <p><strong>Age:</strong> ${student.age}</p>
+            <p><strong>Course:</strong> ${student.course}</p>
+        </div>
+    `;
+};
+
+let handleSubmit = (event) => {
+    event.preventDefault();
+
+    let student = {
+        name: document.getElementById("name").value,
+        age: document.getElementById("age").value,
+        course: document.getElementById("course").value
+    };
+
+    localStorage.setItem("student", JSON.stringify(student));
+    renderCard(student);
+    form.reset();
+};
+
+let savedStudent = JSON.parse(localStorage.getItem("student"));
+if (savedStudent) {
+    renderCard(savedStudent);
+}
+</script>
+
+</body>
+</html>

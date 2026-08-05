@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        This is product page
+
+    </div>
+
+    <div id="falseUser">
+        <a href="login.html">Login</a>
+
+    </div>
+    
+</body>
+</html>
+<Script>
+    let container=document.getElementById("container")
+    let checks_status=localStorage.getItem("isLoggedIn")
+    console.log(checks_status)
+    if (checks_status==="true"){
+        container.style.display="block"
+    }else{
+        container.style.display="none"
+        falseUser.innerHTML= '<h1>Please login</h1>'
+        falseUser.innerHTML += '<a href="login.html">Login</a>'
+    }
+    
+</Script>

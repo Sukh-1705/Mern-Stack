@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">Login</h3>
+                        <form id="loginForm" onsubmit="handleSubmit(event)">
+                            <input type="email" id="email" class="form-control mb-3" placeholder="Enter Email" required>
+                            <input type="password" id="password" class="form-control mb-3" placeholder="Enter Password" required>
+                            <button class="btn btn-primary w-100" type="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    let handleSubmit = (event) => {
+        event.preventDefault();
+        let email = document.getElementById("email").value
+        let password = document.getElementById("password").value
+        let users_data = JSON.parse(localStorage.getItem("users") || "[]")
+        let user = users_data.find((el) => el.useremail === email)
+        if(user && user.userpassword === password){
+            localStorage.setItem("current_user", JSON.stringify(user))
+            localStorage.setItem("isLoggedIn", "true")
+            alert("Login Successful")
+            window.location.href = "products.html"
+        }else{
+            alert("Invalid Credentials")
+        }
+    }
+</script>
+</body>
+</html>
