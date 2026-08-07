@@ -7,27 +7,36 @@
 </head>
 <body>
     <div id="container">
-        This is product page
+        <h1>Products</h1>
+        <h3 id="welcomeText">Welcome : </h3>
+        <button id="logout">Logout</button>
 
     </div>
 
-    <div id="falseUser">
-        <a href="login.html">Login</a>
-
-    </div>
+    <div id="falseUser"></div>
     
 </body>
 </html>
-<Script>
-    let container=document.getElementById("container")
-    let checks_status=localStorage.getItem("isLoggedIn")
-    console.log(checks_status)
-    if (checks_status==="true"){
-        container.style.display="block"
-    }else{
-        container.style.display="none"
-        falseUser.innerHTML= '<h1>Please login</h1>'
+<script>
+    let container = document.getElementById("container")
+    let falseUser = document.getElementById("falseUser")
+    let welcomeText = document.getElementById("welcomeText")
+    let logoutButton = document.getElementById("logout")
+    let checks_status = localStorage.getItem("isLoggedIn")
+    let currentUser = JSON.parse(localStorage.getItem("current_user") || "null")
+
+    if (checks_status === "true" && currentUser) {
+        container.style.display = "block"
+        falseUser.style.display = "none"
+        welcomeText.textContent = `Welcome : ${currentUser.username}`
+        logoutButton.addEventListener("click", () => {
+            localStorage.removeItem("isLoggedIn")
+            localStorage.removeItem("current_user")
+            window.location.href = "login.html"
+        })
+    } else {
+        container.style.display = "none"
+        falseUser.innerHTML = '<h1>Please login</h1>'
         falseUser.innerHTML += '<a href="login.html">Login</a>'
     }
-    
-</Script>
+</script>
