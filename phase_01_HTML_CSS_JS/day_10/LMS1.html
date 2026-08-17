@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Notes By Sukdev</h1>
+        
+
+    </div>
+
+    <div id="falseUser"></div>
+    
+    <main >
+        <section id="notesSection">
+            <label for="notes" style="font-weight:600;display:block;margin-bottom:8px;">Your Notes</label>
+            <textarea id="notes" rows="10" style="width:100%;padding:8px;font-size:14px;box-sizing:border-box;" placeholder="Write your notes here..."></textarea>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+                <button id="saveBtn">Save Notes</button>
+                <button id="loadBtn">Load Notes</button>
+                <button id="clearBtn">Clear Notes</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let NOTES_KEY = 'userNotes';
+        let notesEl = document.getElementById('notes');
+        let saveBtn = document.getElementById('saveBtn');
+        let loadBtn = document.getElementById('loadBtn');
+        let clearBtn = document.getElementById('clearBtn');
+
+        function saveNotes() {
+            let val = notesEl.value.trim();
+            if (val == "") {
+                alert('Cannot save empty notes.');
+                return;
+            }
+            try {
+                localStorage.setItem(NOTES_KEY, val);
+                alert('Notes saved.');
+            } catch (e) {
+                alert('Failed to save notes.');
+            }
+        }
+
+        function loadNotes(showIfMissing) {
+            let stored = localStorage.getItem(NOTES_KEY);
+            if (stored !== null) {
+                notesEl.value = stored;
+                if (showIfMissing) alert('Notes loaded.');
+                return true;
+            } else {
+                if (showIfMissing) alert('No saved notes found.');
+                return false;
+            }
+        }
+
+        function clearNotes() {
+            localStorage.removeItem(NOTES_KEY)
+            notesEl.value = '';
+            alert('Saved notes cleared.')
+        }
+
+        
+        saveBtn.onclick = saveNotes;
+        loadBtn.onclick = function() { loadNotes(true); }
+        clearBtn.onclick = function() {
+            if (confirm('Delete saved notes?')) clearNotes()
+        };
+        function loadNotes () {
+            let stored = LocalStorage.getItem(NotesKey)
+
+        } 
+        
+
+
+
+        
+        loadNotes(false);
+    </script>
+
+</body>
+</html>

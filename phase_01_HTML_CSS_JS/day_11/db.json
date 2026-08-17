@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/json-server/schema.json",
+  "users": [
+    {
+      "name": "Sukdev Bansal",
+      "email": "bansal.sukdev@gmail.com",
+      "age": "20",
+      "id": 1
+    },
+    {
+      "name": "saaahhhmar Veeehhhr",
+      "email": "Saaahhmr@ahhh.com",
+      "age": "67",
+      "id": 2
+    }
+  ]
+}
